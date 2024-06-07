@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>お問い合わせ結果 | KUZIRA CAFE</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body id="top">
+    <!-- ヘッダーここから -->
+    <header class="header">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.svg" alt="KUZIRA CAFE" /></a>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="index.html#news">お知らせ</a></li>
+          <li><a href="index.html#shop">店舗情報</a></li>
+          <li><a href="access.html">アクセス</a></li>
+          <li><a href="menu.html">メニュー</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- ヘッダーここまで -->
+    <h1 class="hero contact">お問い合わせ結果</h1>
+    <!-- メインここから -->
+    <main>
+      <div class="result-box">
+        <p>お問い合わせありがとうございます。以下の内容で送信されました。</p>
+        <ul>
+          <li>お問い合わせの種類: <span id="kind"></span></li>
+          <li>はじめてのご来店ですか？: <span id="first"></span></li>
+          <li>当カフェをお知りになったきっかけ: <span id="how"></span></li>
+          <li>お問い合わせの件名: <span id="subject"></span></li>
+          <li>お問い合わせの具体的な内容: <span id="message"></span></li>
+        </ul>
+        <a href="contact.html" class="btn">戻る</a>
+      </div>
+    </main>
+    <!-- メインここまで -->
+    <!-- フッターここから -->
+    <footer>
+      <div class="gotop">
+        <a href="#top"><img src="images/gotop.svg" alt="ページトップへ戻る" /></a>
+      </div>
+      <p class="copyright">&copy; KUZIRA CAFE</p>
+    </footer>
+    <!-- フッターここまで -->
+
+    <script>
+      // フォームから送信されたデータを取得して表示
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById("kind").textContent = params.get("kind");
+      document.getElementById("first").textContent = params.get("first") === "yes" ? "はい" : "いいえ";
+      const how = params
+        .getAll("how")
+        .map((h) => {
+          switch (h) {
+            case "friend":
+              return "知り合いの紹介で";
+            case "magazine":
+              return "SNS、Webサイト、雑誌などを見て";
+          }
+        })
+        .join(", ");
+      document.getElementById("how").textContent = how;
+      document.getElementById("subject").textContent = params.get("subject");
+      document.getElementById("message").textContent = params.get("massage");
+    </script>
+  </body>
+</html>
