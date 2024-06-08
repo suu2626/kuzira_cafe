@@ -8,22 +8,27 @@
   </head>
   <body id="top">
     <!-- ヘッダーここから -->
-    <header class="header">
-        <div class="logo">
-            <a href="index.html"><img src="images/logo.svg" alt="KUZIRA CAFE"></a>
-        </div>
-      <nav class="nav">
-        <ul>
-          <li><a href="index.html">ホーム</a></li>
-          <li><a href="index.html#news">お知らせ</a></li>
-          <li><a href="index.html#shop">店舗情報</li></a></li>
-          <li><a href="access.html">アクセス</a></li>
-          <li><a href="menu.html">メニュー</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- ヘッダーここまで -->
+  <header class="header">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.svg" alt="KUZIRA CAFE"></a>
+    </div>
+    <nav class="nav">
+      <button class="hamburger" aria-label="Toggle navigation">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="index.html#news">お知らせ</a></li>
+        <li><a href="index.html#shop">店舗情報</a></li>
+        <li><a href="access.html">アクセス</a></li>
+        <li><a href="menu.html">メニュー</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- ヘッダーここまで -->
     <h1 class="hero index">たのしい、ひとときを</h1>
     <!-- メインここから -->
     <main>
@@ -77,45 +82,6 @@
     </footer>
     <!-- フッターここまで -->
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const hero = document.querySelector(".hero.index");
-        const images = [
-          './images/item1.jpg',
-          './images/item2.jpg',
-          './images/item3.jpg',
-          './images/item4.jpg',
-          './images/item5.jpg',
-          './images/item6.jpg',
-          './images/item7.jpg',
-          './images/item8.jpg',
-          './images/item9.jpg',
-          './images/home-hero.jpg'
-        ];
-        let currentIndex = 0;
-    
-        function fadeOut(element) {
-          let opacity = 1;
-          const timer = setInterval(() => {
-            if (opacity <= 0.1) {
-              clearInterval(timer);
-              element.style.opacity = 0;
-              currentIndex = (currentIndex + 1) % images.length;
-              element.style.backgroundImage = `url(${images[currentIndex]})`;
-              setTimeout(() => {
-                element.style.opacity = 1; // フェードアウト後にすぐ次の画像を表示
-                setTimeout(() => fadeOut(element), 2000); // 2秒後に再度フェードアウトを開始
-              }, 0); // 画像を変更した後の短い待機時間
-            } else {
-              opacity -= 0.1;
-              element.style.opacity = opacity;
-            }
-          }, 100); // フェードアウトの速度を調整
-        }
-    
-        setTimeout(() => fadeOut(hero), 2000); // ページロード後2秒後にフェードアウトを開始
-      });
-    </script>
-    
+    <script src="js/main.js"></script>
   </body>
 </html>
