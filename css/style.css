@@ -87,7 +87,7 @@ img {
   background-image: url(../images/stripe.png);
   background-repeat: repeat-x;
   background-color: #fff;
-  opacity: 0.8;
+  opacity: 0.9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .logo {
@@ -173,6 +173,49 @@ ul {
 .hero.contact {
   background-image: url(../images/contact-hero.jpg);
 }
+
+/* スライダー */
+.slider {
+  position: relative;
+  padding: 0 20px 0 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+}
+
+.slide img {
+  width: 100%;
+}
+
+.active {
+  display: block;
+}
+
+/* スライダーのナビゲーション */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
 /* すべてのページに適用 - メイン */
 main {
   margin: 90px auto 90px auto;
@@ -180,12 +223,13 @@ main {
 }
 
 .ttl_balloon4 {
-  font-weight: normal;
+  font-weight: bold;
+  font-size: 1.2rem;
   border: 3px solid #253958;
   margin: 20px 20px 0 20px;
   padding: 0.3em 0.8em;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
   position: relative;
 }
 .ttl_balloon4::before {
@@ -206,6 +250,56 @@ main {
   position: absolute;
   left: 25px;
   bottom: -10px;
+}
+
+/* table */
+table.brwsr2 {
+  margin: 0 auto;
+  width: 650px;
+  border: none;
+  border-top: solid 1px #666;
+  border-bottom: solid 1px #666;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  background: #f5f5f5;
+}
+
+table.brwsr2 th {
+  vertical-align: middle;
+  height: 53px;
+  width: 124px;
+  border-right: solid 1px #666;
+  margin: 0;
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+table.brwsr2 td.data {
+  padding: 0;
+  margin: 0;
+  height: 53px;
+  width: 100px;
+  border: none;
+  color: #666;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+table.brwsr2 td:fst-child {
+  padding: 0 0 0 10px;
+  vertical-align: middle;
+}
+
+table.brwsr2 td.bar {
+  height: 1px;
+  width: 100%;
+  border-top: solid 1px #34495e;
 }
 /* すべてのページに適用 - フッター */
 /* フローティングボタン */
@@ -256,10 +350,11 @@ main {
 /* index.html */
 .shop-info {
   border-collapse: collapse;
+  margin: 0 20px 0 20px;
 }
 .shop-info th,
 .shop-info td {
-  border: 1px solid #dbdbdb;
+  border: 1px solid #253958;
   padding: 20px;
 }
 .shop-info th {

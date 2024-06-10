@@ -5,14 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadingScreen.style.display = "none";
   }, 1800);
 
-  setTimeout(() => {
-    loadingScreen.style.transition = "opacity 1s ease";
-    loadingScreen.style.opacity = "0";
-    setTimeout(() => {
-      loadingScreen.style.display = "none";
-    }, 800);
-  }, 1200);
-
+  // トップ画像切り替え
   const hero = document.querySelector(".hero.index");
   const images = [
     "./images/item1.jpg",
@@ -45,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 120); // フェードアウトの速度を調整
   }
 
-  setTimeout(() => fadeOut(hero), 2000); // ページロード後2秒後にフェードアウトを開始
+  setTimeout(() => fadeOut(hero), 3000); // ページロード後3秒後にフェードアウトを開始
 
   // ハンバーガーメニュー（スマホのみ）
   const hamburger = document.querySelector(".hamburger");
@@ -54,6 +47,23 @@ document.addEventListener("DOMContentLoaded", () => {
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("show");
   });
+
+  // スライドショーの設定
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((slide, index) => {
+      slide.style.display = "none";
+    });
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 3500); // 3秒ごとにスライドを切り替え
+  }
 
   // トップへ戻るボタン
   const gotop = document.querySelector(".gotop");
